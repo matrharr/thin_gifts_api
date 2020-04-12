@@ -1,0 +1,46 @@
+[
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "name": "Happy Birthday!",
+            "description": "A birthday card for a child ages 8-12.",
+            "price": 4.99,
+            "p_type": "CA",
+            "creator_name": "Matt Harris"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "name": "Happy Easter",
+            "description": "A colorful Easter card with eggs.",
+            "price": 6.99,
+            "p_type": "CA",
+            "creator_name": "Jen Fang"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "name": "Merry Christmas",
+            "description": "A christmas holiday card with Santa Claus.",
+            "price": 2.99,
+            "p_type": "CA",
+            "creator_name": "Matt Harris"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "name": "Amazon Gift Card",
+            "description": "A gift card for Amazon for $25",
+            "price": 25.00,
+            "p_type": "GI",
+            "creator_name": "Amazon"
+        }
+    }
+]
