@@ -7,7 +7,10 @@
             "description": "A birthday card for a child ages 8-12.",
             "price": 4.99,
             "p_type": "CA",
-            "creator_name": "Matt Harris"
+            "creator_name": "Matt Harris",
+            "tags": [1],
+            "created_at": "2020-04-12 18:55:40.899321",
+            "updated_at": "2020-04-12 18:55:40.899321"
         }
     },
     {
@@ -18,7 +21,10 @@
             "description": "A colorful Easter card with eggs.",
             "price": 6.99,
             "p_type": "CA",
-            "creator_name": "Jen Fang"
+            "creator_name": "Jen Fang",
+            "tags": [2],
+            "created_at": "2020-04-12 18:55:40.899321",
+            "updated_at": "2020-04-12 18:55:40.899321"
         }
     },
     {
@@ -29,7 +35,10 @@
             "description": "A christmas holiday card with Santa Claus.",
             "price": 2.99,
             "p_type": "CA",
-            "creator_name": "Matt Harris"
+            "creator_name": "Matt Harris",
+            "tags": [3],
+            "created_at": "2020-04-12 18:55:40.899321",
+            "updated_at": "2020-04-12 18:55:40.899321"
         }
     },
     {
@@ -40,7 +49,10 @@
             "description": "A gift card for Amazon for $25",
             "price": 25.00,
             "p_type": "GI",
-            "creator_name": "Amazon"
+            "creator_name": "Amazon",
+            "tags": [5, 4],
+            "created_at": "2020-04-12 18:55:40.899321",
+            "updated_at": "2020-04-12 18:55:40.899321"
         }
     }
 ]

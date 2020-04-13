@@ -1,0 +1,74 @@
+[
+    {
+        "model": "tags.tag",
+        "pk": 1,
+        "fields": {
+            "name": "Birthday",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 2,
+        "fields": {
+            "name": "Easter",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 3,
+        "fields": {
+            "name": "Christmas",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 4,
+        "fields": {
+            "name": "Gift Card",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 5,
+        "fields": {
+            "name": "Shopping",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 6,
+        "fields": {
+            "name": "Valentines",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 7,
+        "fields": {
+            "name": "Father's Day",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 8,
+        "fields": {
+            "name": "Mother's Day",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    },
+    {
+        "model": "tags.tag",
+        "pk": 9,
+        "fields": {
+            "name": "Dining",
+            "created_at": "2020-04-12 18:55:40.899321"
+        }
+    }
+]

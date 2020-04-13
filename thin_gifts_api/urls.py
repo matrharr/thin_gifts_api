@@ -18,10 +18,12 @@ from django.urls import include, path
 from django.contrib import admin
 
 from rest_framework import routers
-from products import views
+from products import views as product_views
+from tags import views as tag_views
 
 router = routers.DefaultRouter()
-router.register(r'products', views.ProductViewSet)
+router.register(r'products', product_views.ProductViewSet)
+router.register(r'tags', tag_views.TagViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
