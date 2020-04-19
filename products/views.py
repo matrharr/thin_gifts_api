@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -13,19 +13,15 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    # def get_queryset(self):
-    #     queryset = Product.objects.all()
-    #     p_type = self.request.query_params.get('type', None)
-    #     if p_type is not None:
-    #         queryset = queryset.filter(p_type=p_type)
-    #     return queryset
-
     @action(detail=False, methods=['get'])
-    def get_cards(self, request):
-        cards = Product.objects.filter(p_type='CA')
+    def get_products(self, request):
+        p_type = self.request.query_params.get('type', None)
+        if not p_type:
+            return Response(data="Must specify a product type.", status=status.HTTP_400_BAD_REQUEST)
+        cards = Product.objects.filter(p_type=p_type)
         page = self.paginate_queryset(cards)
 
-        tags = Tag.objects.filter(product__in=cards).distinct()
+        tags = Tag.objects.filter(product__in=cards).distinct().values('name')
 
         if page is not None:
             serializer = self.get_serializer(page, many=True)

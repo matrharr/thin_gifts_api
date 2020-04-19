@@ -20,10 +20,12 @@ from django.contrib import admin
 from rest_framework import routers
 from products import views as product_views
 from tags import views as tag_views
+from shopping_cart import views as shopping_cart_views
 
 router = routers.DefaultRouter()
 router.register(r'products', product_views.ProductViewSet)
 router.register(r'tags', tag_views.TagViewSet)
+router.register(r'shopping_cart', shopping_cart_views.ShoppingCartViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

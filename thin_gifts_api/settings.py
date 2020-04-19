@@ -25,8 +25,14 @@ SECRET_KEY = '@f(90)-u@xplb*2e9i7b4kbf5!ilu!mk*p1^5q2#()c%8o0z7n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+APPEND_SLASH = False
+
 ALLOWED_HOSTS = []
 
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_SAMESITE = None
+# SESSION_ENGINE = ''
+SESSION_COOKIE_DOMAIN = 'http://localhost:4200'
 
 # Application definition
 
@@ -39,14 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'tags',
+    'shopping_cart',
     'rest_framework',
     'corsheaders'
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -54,7 +61,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200',
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
