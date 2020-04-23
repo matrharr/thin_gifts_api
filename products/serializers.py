@@ -12,5 +12,6 @@ class ProductSerializer(serializers.ModelSerializer):
             'description', 
             'price', 
             'p_type',
-            'creator_name'
+            'creator_name',
+            'tags'
         ]

@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_COOKIE_SAMESITE = None
 # SESSION_ENGINE = ''
-SESSION_COOKIE_DOMAIN = 'http://localhost:4200'
+# SESSION_COOKIE_DOMAIN = 'http://localhost:4200'
 
 # Application definition
 
@@ -54,8 +54,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'

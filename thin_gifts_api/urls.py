@@ -26,6 +26,7 @@ router = routers.DefaultRouter()
 router.register(r'products', product_views.ProductViewSet)
 router.register(r'tags', tag_views.TagViewSet)
 router.register(r'shopping_cart', shopping_cart_views.ShoppingCartViewSet)
+router.register(r'shopping_cart_products', shopping_cart_views.ShoppingCartProductViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
