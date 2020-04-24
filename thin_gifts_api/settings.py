@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'tags',
     'shopping_cart',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
