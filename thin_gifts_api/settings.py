@@ -10,7 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+from django.core.exceptions import ImproperlyConfigured
 import os
+
+def get_env_variable(name):
+    """Gets the environment variable or throws ImproperlyConfigured
+    exception
+    :rtype: object
+    """
+    try:
+        return os.environ[name]
+    except KeyError:
+        raise ImproperlyConfigured('Environment variable “%s” not found.' % name)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,8 +42,6 @@ ALLOWED_HOSTS = []
 
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_COOKIE_SAMESITE = None
-# SESSION_ENGINE = ''
-# SESSION_COOKIE_DOMAIN = 'http://localhost:4200'
 
 # Application definition
 
@@ -46,9 +55,10 @@ INSTALLED_APPS = [
     'products',
     'tags',
     'shopping_cart',
+    'paypal_payments',
+    'orders',
     'rest_framework',
     'corsheaders',
-    'django_filters'
 ]
 
 MIDDLEWARE = [

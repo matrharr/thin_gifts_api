@@ -2,11 +2,9 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from django_filters.rest_framework import DjangoFilterBackend
 
 from products.serializers import ProductSerializer
 from products.models import Product
-from products.filters import ProductFilter
 
 from tags.models import Tag
 from tags.serializers import TagSerializer
