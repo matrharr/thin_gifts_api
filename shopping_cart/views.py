@@ -5,6 +5,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from products.serializers import ProductSerializer
+from products.models import Product
 
 from shopping_cart.models import ShoppingCart, ShoppingCartProduct
 from shopping_cart.cart_serializer import ShoppingCartSerializer
@@ -18,15 +19,14 @@ class ShoppingCartProductViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def create_or_update_cart(self, request, *args, **kwargs):
         # update
-        # import ipdb; ipdb.set_trace()
         if request.session.get('cart_id') is not None:
 
             cp_data = {
                 **request.data,
                 'shopping_cart': request.session['cart_id']
             }
-            cart_product_serializer = self.get_serializer(data=cp_data)
-            cart_product_serializer.is_valid()
+            cart_product_serializer = ShoppingCartProductSerializer(data=cp_data)
+            cart_product_serializer.is_valid(raise_exception=True)
             self.perform_create(cart_product_serializer)
         # create
         else:
@@ -39,8 +39,8 @@ class ShoppingCartProductViewSet(viewsets.ModelViewSet):
                 'product': request.data['product'],
                 'shopping_cart': cart_serializer.data['id']
             }
-            cart_product_serializer = self.get_serializer(data=cp_data)
-            cart_product_serializer.is_valid()
+            cart_product_serializer = ShoppingCartProductSerializer(data=cp_data)
+            cart_product_serializer.is_valid(raise_exception=True)
             self.perform_create(cart_product_serializer)
             request.session['cart_id'] = str(cart_serializer.data['id'])
         

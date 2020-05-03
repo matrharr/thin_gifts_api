@@ -23,3 +23,5 @@ class ProductSerializer(serializers.ModelSerializer):
             'creator_name',
             'tags'
         ]
+
+    

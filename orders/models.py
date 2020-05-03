@@ -24,7 +24,8 @@ class Order(models.Model):
     email           = models.CharField(max_length=100)
     order_products  = models.ManyToManyField(
                         Product,
-                        through="OrderProduct"
+                        through="OrderProduct",
+                        blank=True
                     )
     status          = models.CharField(
                         max_length=10,
@@ -33,7 +34,7 @@ class Order(models.Model):
                     )
 
     def get_order_products(self):
-        return Product.objects.filter(order__set=self)
+        return Product.objects.filter(order=self)
 
 class OrderProduct(models.Model):
     objects           = models.Manager()

@@ -22,8 +22,8 @@ class AddressSerializer(serializers.ModelSerializer):
 class ShoppingCartProductSerializer(serializers.ModelSerializer):
     return_address = AddressSerializer(required=False)
     recipient_address = AddressSerializer(required=False)
-    shopping_cart = ShoppingCartSerializer()
-    product = ProductSerializer()
+    shopping_cart_detail = ShoppingCartSerializer(source='shopping_cart', read_only=True)
+    product_detail = ProductSerializer(source='product', read_only=True)
     
     class Meta:
         model = ShoppingCartProduct
@@ -31,8 +31,10 @@ class ShoppingCartProductSerializer(serializers.ModelSerializer):
             'id',
             'created_at',     
             'updated_at',  
-            'product',   
+            'product',
+            'product_detail',
             'shopping_cart',
+            'shopping_cart_detail',
             'message',
             'return_address',
             'recipient_address'
@@ -59,6 +61,7 @@ class ShoppingCartProductSerializer(serializers.ModelSerializer):
             recipient_address=recipient_address, 
             **validated_data
         )
+        
         return instance
 
     def update(self, instance, validated_data):

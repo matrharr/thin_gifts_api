@@ -30,6 +30,7 @@ router.register(r'tags', tag_views.TagViewSet)
 router.register(r'shopping_cart', shopping_cart_views.ShoppingCartViewSet)
 router.register(r'shopping_cart_products', shopping_cart_views.ShoppingCartProductViewSet)
 router.register(r'orders', order_views.OrderViewSet)
+router.register(r'order_products', order_views.OrderProductViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

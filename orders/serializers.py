@@ -11,7 +11,7 @@ from orders.models import Order, OrderProduct
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    order_products = ProductSerializer(source='get_order_products', many=True)
+    order_products = ProductSerializer(source='get_order_products', many=True, required=False)
     total_price = serializers.SerializerMethodField('get_total_price')
 
     class Meta:

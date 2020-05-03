@@ -16,6 +16,7 @@ class ShoppingCart(models.Model):
     cart_products   = models.ManyToManyField(
                         Product, 
                         through='ShoppingCartProduct',
+                        blank=True
                     )
 
     def get_cart_products(self):

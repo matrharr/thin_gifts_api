@@ -7,7 +7,7 @@ from products.serializers import ProductSerializer
 from shopping_cart.models import ShoppingCart
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
-    cart_products = ProductSerializer(source='get_cart_products', many=True)
+    cart_products = ProductSerializer(source='get_cart_products', many=True, required=False)
     total_price = serializers.SerializerMethodField('get_total_price')
     
     class Meta:
