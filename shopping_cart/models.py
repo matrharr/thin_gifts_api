@@ -39,7 +39,7 @@ class ShoppingCartProduct(models.Model):
     created_at        = models.DateTimeField(auto_now_add=True)
     updated_at        = models.DateTimeField(auto_now=True)
     product           = models.ForeignKey(Product, on_delete=models.CASCADE)
-    shopping_cart     = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE)
+    shopping_cart     = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, related_name="shopping_cart_products")
     message           = models.CharField(max_length=2500, null=True)
     return_address    = models.ForeignKey(
                             Address,

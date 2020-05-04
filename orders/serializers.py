@@ -14,6 +14,8 @@ class OrderSerializer(serializers.ModelSerializer):
     order_products = ProductSerializer(source='get_order_products', many=True, required=False)
     total_price = serializers.SerializerMethodField('get_total_price')
 
+    # def create and update for order products
+
     class Meta:
         model = Order
         fields = [
