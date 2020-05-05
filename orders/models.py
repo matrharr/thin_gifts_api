@@ -25,7 +25,7 @@ class Order(models.Model):
     order_products  = models.ManyToManyField(
                         Product,
                         through="OrderProduct",
-                        blank=True
+                        blank=True,
                     )
     status          = models.CharField(
                         max_length=10,
@@ -50,12 +50,13 @@ class OrderProduct(models.Model):
     product           = models.ForeignKey(
                             Product,
                             on_delete=models.SET_NULL, 
-                            null=True
+                            null=True,
                         )
-    order     = models.ForeignKey(
+    order             = models.ForeignKey(
                             Order,
                             on_delete=models.SET_NULL, 
-                            null=True
+                            null=True,
+                            related_name='order_products_set'
                         )
     message           = models.CharField(max_length=2500)
     return_address    = models.ForeignKey(
