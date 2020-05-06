@@ -64,6 +64,7 @@ class ShoppingCartViewSet(viewsets.ModelViewSet):
         cart_quantity = cart.cart_products.count()
         data = {
             'quantity': cart_quantity,
+            'id': cart.id
         }
         return Response(data)
 

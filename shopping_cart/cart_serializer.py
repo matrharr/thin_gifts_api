@@ -5,11 +5,13 @@ from rest_framework import serializers
 from products.serializers import ProductSerializer
 
 from shopping_cart.models import ShoppingCart
+from shopping_cart.cart_product_serializer import ShoppingCartProductSerializer
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
-    cart_products = ProductSerializer(source='get_cart_products', many=True, required=False)
+    # cart_products = ProductSerializer(source='get_cart_products', many=True, required=False)
     total_price = serializers.SerializerMethodField('get_total_price')
-    shopping_cart_products = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    # shopping_cart_products = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    shopping_cart_products_detail = ShoppingCartProductSerializer(source="shopping_cart_products", read_only=True, many=True)
     
     class Meta:
         model = ShoppingCart
@@ -20,7 +22,8 @@ class ShoppingCartSerializer(serializers.ModelSerializer):
             'updated_at',
             'created_at',
             'total_price',
-            'shopping_cart_products',
+            # 'shopping_cart_products',
+            'shopping_cart_products_detail'
         ]
 
     def get_total_price(self, instance):
