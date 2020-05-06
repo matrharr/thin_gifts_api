@@ -28,7 +28,7 @@ def execute_payment(request):
     send_mail(
         'Your Thin Gifts Order',
         'Thank you for your recent order.',
-        'matrharr@gmail.com',
+        'thingiftorders@gmail.com',
         [email, 'matrharr@gmail.com'],
         fail_silently=False
     )
