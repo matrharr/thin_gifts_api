@@ -32,7 +32,7 @@ class ShoppingCartProductSerializer(serializers.ModelSerializer):
             'id',
             'created_at',     
             'updated_at',  
-            # 'product',
+            'product',
             'product_detail',
             'shopping_cart',
             'shopping_cart_detail',
