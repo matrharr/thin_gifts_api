@@ -11,8 +11,8 @@ from orders.models import Order, OrderProduct
 
 
 class OrderProductSerializer(serializers.ModelSerializer):
-    return_address_detail = AddressSerializer(source='address', required=False, read_only=True)
-    recipient_address_detail = AddressSerializer(source='address', required=False, read_only=True)
+    return_address_detail = AddressSerializer(source='return_address', required=False, read_only=True)
+    recipient_address_detail = AddressSerializer(source='recipient_address', required=False, read_only=True)
     product_detail = ProductSerializer(source='product', read_only=True)
     message = serializers.CharField(max_length=2500)
 
