@@ -1,6 +1,7 @@
 from django.core.mail import send_mail
 from django.template import loader
 
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -18,6 +19,8 @@ def execute_payment(request):
     shopping_cart_products = shopping_cart.shopping_cart_products.all().values('product', 'message', 'return_address', 'recipient_address')
     scp = list(shopping_cart_products)
     email = request.data['email']
+    if not email:
+        return Response(data="A valid email address is required.", status=status.HTTP_400_BAD_REQUEST)
     # create order with sc data
     order = OrderSerializer(data={
         'email': email,
