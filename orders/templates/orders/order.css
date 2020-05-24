@@ -1,0 +1,52 @@
+#thin_img {
+    width: 5%;
+    vertical-align: middle;
+}
+
+.confirmation {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    color: rgb(245, 131, 38);
+}
+
+#fulfill {
+    color: rgb(245, 131, 38);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary {
+    flex: 2;
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+}
+
+.payment {
+    padding: 10px;
+    margin: 10px;
+    flex: 1;
+    background-color: rgb(220, 224, 224);
+}
+
+
+.order {
+    flex: 2;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.order_detail {
+    display: flex;
+}
+
+#order_img {
+    width: 15%;
+}

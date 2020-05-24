@@ -1,4 +1,5 @@
 from django.core.mail import send_mail
+from django.template import loader
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -25,11 +26,19 @@ def execute_payment(request):
     order.is_valid(raise_exception=True)
     order.save()
     # TODO: delete shopping cart
+    html_message = loader.render_to_string(
+        'orders/order.html',
+        {
+            "order": order.data
+        }
+    )
+    import ipdb; ipdb.set_trace()
     send_mail(
         'Your Thin Gifts Order',
         'Thank you for your recent order.',
         'thingiftorders@gmail.com',
         [email, 'matrharr@gmail.com'],
+        html_message=html_message,
         fail_silently=False
     )
     # return order

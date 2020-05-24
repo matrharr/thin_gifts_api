@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <div class="confirmation" style="">
+        <h1 class="title" style="color: rgb(245, 131, 38);">
+            <img id="thin_img" style="width: 5%;vertical-align: middle;" src="https://thin-gifts-cards.s3.amazonaws.com/ThinGift+Simple+Logo.jpg" alt="">
+            Thank you for your Order!
+        </h1>
+        <div class="top" style="">
+            <div class="summary" style="border: 1px solid gray;padding: 10px;margin: 10px;">
+                <p>Order Date: {{today}} | Order Number: {{order.id}}</p> 
+                <p>Estimated Delivery: </p>
+                <p>Status: <span id="fulfill" style="color: rgb(245, 131, 38);">Fulfilling</span></p>
+                <p>Payment:</p>
+                <p>Paid with PayPal</p>
+            </div>
+            <div class="payment" style="padding: 10px;margin: 10px;background-color: rgb(220, 224, 224);">
+                <h1>Order summary</h1>
+                <p>Subtotal ${{order.total_price.price__sum|floatformat:2}}</p>
+                <p>Shipping $X</p>
+                <hr>
+                <h3>Order Total ${{order.total_price.price__sum|floatformat:2}}</h3>
+                <p>To modify or edit your order, email us at thingiftorder@gmail.com</p>
+            </div>
+        </div>
+        <div class="order" style="margin: 10px;padding: 10px;border: 1px solid gray;">
+            <div>
+                <h3>Ordered Items</h3>
+            </div>
+            <hr>
+            {% for i in order.order_products_set %}
+                <div class="order_detail" style="">
+                    <img id="order_img" style="width: 15%;" src="{{i.product_detail.image_url}}">
+                    <p>{{i.product_detail.name}} by {{i.product_detail.creator_name}}</p>
+                    <div>
+                        <h4>Return Address</h4>
+                        <p>{{i.recipient_address_detail.name}}</p>
+                        <p>{{i.recipient_address_detail.street}}</p>
+                        <p>
+                            {{i.recipient_address_detail.city}}, {{i.recipient_address_detail.state}} {{i.recipient_address_detail.code}}
+                        </p>
+                    </div>
+                    <div>
+                        <h4>Recipient Address</h4>
+                        <p>{{i.return_address_detail.name}}</p>
+                        <p>{{i.return_address_detail.street}}</p>
+                        <p>
+                            {{i.return_address_detail.city}}, {{i.return_address_detail.state}} {{i.return_address_detail.code}}
+                        </p>
+                    </div>
+                    <p>Price: ${{i.product_detail.price}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</html>
+
