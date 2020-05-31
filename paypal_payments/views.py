@@ -10,6 +10,7 @@ from paypal_payments.models import CaptureOrder
 from shopping_cart.models import ShoppingCart, ShoppingCartProduct
 
 from orders.serializers import OrderProductSerializer, OrderSerializer
+from orders.tasks import create_and_send_pdf
 
 @api_view(['POST'])
 def execute_payment(request):
@@ -35,7 +36,6 @@ def execute_payment(request):
             "order": order.data
         }
     )
-    import ipdb; ipdb.set_trace()
     send_mail(
         'Your Thin Gifts Order',
         'Thank you for your recent order.',
@@ -44,5 +44,6 @@ def execute_payment(request):
         html_message=html_message,
         fail_silently=False
     )
-    # return order
+    create_and_send_pdf.delay(order.data)
+    
     return Response(order.data)
