@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 from django.core.exceptions import ImproperlyConfigured
 import os
 
+
 def get_env_variable(name):
     """Gets the environment variable or throws ImproperlyConfigured
     exception
@@ -87,8 +88,10 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200',
 )
 
+
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'DEFAULT_PAGINATION_CLASS': 'StandardResultsSetPagination',
     'PAGE_SIZE': 10
 }
 

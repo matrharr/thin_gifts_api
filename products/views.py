@@ -1,5 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
+from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
 
 
@@ -13,6 +14,7 @@ from tags.serializers import TagSerializer
 class ProductViewSet(viewsets.ModelViewSet):
     queryset          = Product.objects.all()
     serializer_class  = ProductSerializer
+    pagination_class  = LimitOffsetPagination
 
     @action(detail=False, methods=['get'])
     def get_products(self, request):
