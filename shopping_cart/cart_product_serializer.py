@@ -37,6 +37,8 @@ class ShoppingCartProductSerializer(serializers.ModelSerializer):
             'shopping_cart',
             'shopping_cart_detail',
             'message',
+            'color',
+            'font',
             'return_address',
             'recipient_address'
         ]
@@ -90,6 +92,8 @@ class ShoppingCartProductSerializer(serializers.ModelSerializer):
             # addr.save()
 
         instance.message = validated_data.get('message', instance.message)
+        instance.color = validated_data.get('color', instance.color)
+        instance.font = validated_data.get('font', instance.font)
         instance.save()
         
         return instance
