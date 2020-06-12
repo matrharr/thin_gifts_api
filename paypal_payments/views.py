@@ -17,7 +17,7 @@ def execute_payment(request):
     result = CaptureOrder().capture_order(request.data['order_id'])
     # get shopping cart & scp
     shopping_cart = ShoppingCart.objects.get(pk=request.data['shopping_cart_id'])
-    shopping_cart_products = shopping_cart.shopping_cart_products.all().values('product', 'message', 'return_address', 'recipient_address')
+    shopping_cart_products = shopping_cart.shopping_cart_products.all().values('product', 'message', 'return_address', 'recipient_address', 'color', 'font')
     scp = list(shopping_cart_products)
     email = request.data['email']
     if not email:

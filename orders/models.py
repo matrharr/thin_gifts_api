@@ -45,6 +45,14 @@ class OrderProduct(models.Model):
         RECEIVED      = 'RECEIVED', _('RECEIVED')
         CANCELED      = 'CANCELED', _('CANCELED')
 
+    class ColorTypes(models.TextChoices):
+        BLACK      = 'BLACK', _('Black')
+        LIGHT_BLUE = 'LIGHT_BLUE', _('LightBlue')
+
+    class FontTypes(models.TextChoices):
+        REGULAR = 'REGULAR', _('Regular')
+        CURSIVE = 'CURSIVE', _('Cursive')
+
     created_at        = models.DateTimeField(auto_now_add=True)
     updated_at        = models.DateTimeField(auto_now=True)
     product           = models.ForeignKey(
@@ -59,6 +67,16 @@ class OrderProduct(models.Model):
                             related_name='order_products_set'
                         )
     message           = models.CharField(max_length=2500)
+    color             = models.CharField(
+                            max_length=50,
+                            choices=ColorTypes.choices,
+                            null=True
+                        )
+    font              = models.CharField(
+                            max_length=50,
+                            choices=FontTypes.choices,
+                            null=True
+                        )
     return_address    = models.ForeignKey(
                             Address,
                             related_name='order_return_address',

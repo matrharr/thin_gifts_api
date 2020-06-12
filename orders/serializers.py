@@ -15,6 +15,8 @@ class OrderProductSerializer(serializers.ModelSerializer):
     recipient_address_detail = AddressSerializer(source='recipient_address', required=False, read_only=True)
     product_detail = ProductSerializer(source='product', read_only=True)
     message = serializers.CharField(max_length=2500)
+    color = serializers.CharField(max_length=50)
+    font = serializers.CharField(max_length=50)
 
     class Meta:
         model = OrderProduct
@@ -25,6 +27,8 @@ class OrderProductSerializer(serializers.ModelSerializer):
             'product',
             'order',
             'message',
+            'color',
+            'font',
             'return_address',
             'recipient_address',
             'status',
@@ -47,6 +51,8 @@ class OrderSerializer(serializers.ModelSerializer):
                 order=order,
                 product=d['product'],
                 message=d['message'],
+                color=d['color'],
+                font=d['font'],
                 return_address=d['return_address'],
                 recipient_address=d['recipient_address']
             )
