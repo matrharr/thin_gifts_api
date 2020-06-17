@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
     <div class="confirmation" style="">
-        <h1 class="title" style="color: rgb(245, 131, 38);">
-            <img id="thin_img" style="width: 5%;vertical-align: middle;" src="https://thin-gifts-cards.s3.amazonaws.com/ThinGift+Simple+Logo.jpg" alt="">
-            Thank you for your Order!
-        </h1>
         <div class="top" style="">
             <div class="summary" style="border: 1px solid gray;padding: 10px;margin: 10px;">
                 <p>Order Date: {{today}} | Order Number: {{order.id}}</p> 
@@ -31,6 +27,9 @@
                 <div class="order_detail" style="">
                     <img id="order_img" style="width: 15%;" src="{{i.product_detail.image_url}}">
                     <p>{{i.product_detail.name}} by {{i.product_detail.creator_name}}</p>
+                    <p>Message Text: {{i.message}}</p>
+                    <p>Message color: {{i.color}}</p>
+                    <p>Message font: {{i.font}}</p>
                     <div>
                         <h4>Return Address</h4>
                         <p>{{i.recipient_address_detail.name}}</p>

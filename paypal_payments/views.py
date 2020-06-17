@@ -10,7 +10,6 @@ from paypal_payments.models import CaptureOrder
 from shopping_cart.models import ShoppingCart, ShoppingCartProduct
 
 from orders.serializers import OrderProductSerializer, OrderSerializer
-from orders.tasks import create_and_send_pdf
 
 @api_view(['POST'])
 def execute_payment(request):
@@ -30,7 +29,7 @@ def execute_payment(request):
     order.is_valid(raise_exception=True)
     order.save()
     # TODO: delete shopping cart
-    html_message = loader.render_to_string(
+    receipt_message = loader.render_to_string(
         'orders/order.html',
         {
             "order": order.data
@@ -41,9 +40,25 @@ def execute_payment(request):
         'Thank you for your recent order.',
         'thingiftorders@gmail.com',
         [email, 'matrharr@gmail.com'],
-        html_message=html_message,
+        html_message=receipt_message,
         fail_silently=False
     )
-    create_and_send_pdf.delay(order.data)
+
+    print_message = loader.render_to_string(
+        'orders/print-info.html',
+        {
+            "order": order.data
+        }
+    )
+    
+    send_mail(
+        'Print Details for Order',
+        'Print Details for Order',
+        'thingiftorders@gmail.com',
+        ['matrharr@gmail.com', 'jenniferfang12@gmail.com'],
+        html_message=print_message,
+        fail_silently=False
+    )
+
     
     return Response(order.data)
