@@ -29,7 +29,7 @@ class Address(models.Model):
     
     name       = models.CharField(max_length=50, null=True)
     street     = models.CharField(max_length=50, null=True)
-    street2    = models.CharField(max_length=50, null=True)
+    street2    = models.CharField(max_length=50, null=True, blank=True)
     city       = models.CharField(max_length=50, null=True)
     state      = models.CharField(max_length=2,  null=True)
     code       = models.CharField(max_length=20, null=True)
