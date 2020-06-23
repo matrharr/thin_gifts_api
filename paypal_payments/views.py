@@ -62,3 +62,17 @@ def execute_payment(request):
 
     
     return Response(order.data)
+
+
+@api_view(['POST'])
+def subscribe_email(request):
+    message = "New subscriber email is {}".format(request.data['email'])
+    send_mail(
+        'New Thin Gifts Newsletter subscriber!',
+        message,
+        'thingiftorders@gmail.com',
+        ['matrharr@gmail.com', 'jenniferfang12@gmail.com'],
+        fail_silently=False
+    )
+
+    return Response(status=status.HTTP_200_OK)

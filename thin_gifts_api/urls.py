@@ -23,6 +23,7 @@ from tags                   import views as tag_views
 from shopping_cart          import views as shopping_cart_views
 from orders                 import views as order_views
 from paypal_payments.views  import execute_payment
+from paypal_payments.views  import subscribe_email
 
 router = routers.DefaultRouter()
 router.register(r'products', product_views.ProductViewSet)
@@ -35,5 +36,6 @@ router.register(r'order_products', order_views.OrderProductViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'execute_payment/', execute_payment)
+    url(r'execute_payment/', execute_payment),
+    url(r'subscribe_email/', subscribe_email)
 ]
