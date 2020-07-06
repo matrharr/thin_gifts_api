@@ -70,12 +70,14 @@ class OrderProduct(models.Model):
     color             = models.CharField(
                             max_length=50,
                             choices=ColorTypes.choices,
-                            null=True
+                            null=True,
+                            default=ColorTypes.BLACK
                         )
     font              = models.CharField(
                             max_length=50,
                             choices=FontTypes.choices,
-                            null=True
+                            null=True,
+                            default=FontTypes.CURSIVE
                         )
     return_address    = models.ForeignKey(
                             Address,

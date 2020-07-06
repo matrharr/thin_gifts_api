@@ -28,7 +28,10 @@ def execute_payment(request):
     })
     order.is_valid(raise_exception=True)
     order.save()
-    # TODO: delete shopping cart
+    
+    shopping_cart.delete()
+    del request.session['cart_id']
+    
     receipt_message = loader.render_to_string(
         'orders/order.html',
         {
