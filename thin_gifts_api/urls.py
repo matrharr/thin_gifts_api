@@ -34,9 +34,9 @@ router.register(r'orders', order_views.OrderViewSet)
 router.register(r'order_products', order_views.OrderProductViewSet)
 
 urlpatterns = [
+    url(r'', product_views.HomePageView.as_view()),
     path('', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'execute_payment/', execute_payment),
     url(r'subscribe_email/', subscribe_email),
-    url(r'home/', product_views.HomePageView.as_view()),
 ]
