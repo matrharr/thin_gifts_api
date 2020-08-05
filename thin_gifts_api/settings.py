@@ -33,17 +33,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('django_key')
+SECRET_KEY = os.environ.get('APP_SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = os.environ.get('DEBUG_VALUE')
 
 CELERY_BROKER_URL = 'amqp://localhost'
 
 APPEND_SLASH = False
 
 ALLOWED_HOSTS = [
-    '*'
+    'https://thingifts.herokuapp.com/',
+    'http://thingifts.com',
+    'https://thingifts.com'
 ]
 
 SESSION_SAVE_EVERY_REQUEST = True
@@ -53,8 +55,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # Application definition
 
@@ -131,10 +133,6 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.postgresql',
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'NAME': 'thingifts_db',
-        # 'USER': 'postgres',
-        # 'HOST': config('RDS_host'),
-        # 'PASSWORD': config('DB_password')
     }
 }
 

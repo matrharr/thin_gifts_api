@@ -1,3 +1,4 @@
+import os
 from paypalcheckoutsdk.orders import OrdersCaptureRequest
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
 
@@ -7,8 +8,8 @@ import sys
 
 class PayPalClient:
     def __init__(self):
-        self.client_id = config('PAYPAL_CLIENT_ID')
-        self.client_secret = config('PAYPAL_SECRET')
+        self.client_id = os.environ.get('PAYPAL_CLIENT_ID')
+        self.client_secret = os.environ.get('PAYPAL_SECRET')
 
         """Set up and return PayPal Python SDK environment with PayPal access credentials.
            This sample uses SandboxEnvironment. In production, use LiveEnvironment."""
