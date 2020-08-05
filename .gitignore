@@ -1,3 +1,5 @@
+staticfiles
+docker/
 # Django #
 *.log
 *.pot

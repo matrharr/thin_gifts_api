@@ -1,3 +1,6 @@
+from django.shortcuts import render
+from django.views.generic import TemplateView
+
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.pagination import LimitOffsetPagination
@@ -46,3 +49,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         if p_type:
             queryset = queryset.filter(p_type=p_type)
         return queryset
+
+class HomePageView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'index.html', context=None)

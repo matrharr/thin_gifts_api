@@ -37,5 +37,6 @@ urlpatterns = [
     path('', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'execute_payment/', execute_payment),
-    url(r'subscribe_email/', subscribe_email)
+    url(r'subscribe_email/', subscribe_email),
+    url(r'home/', product_views.HomePageView.as_view()),
 ]

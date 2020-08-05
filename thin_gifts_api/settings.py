@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 from django.core.exceptions import ImproperlyConfigured
 import os
+from decouple import config
 
 
 def get_env_variable(name):
@@ -32,16 +33,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@f(90)-u@xplb*2e9i7b4kbf5!ilu!mk*p1^5q2#()c%8o0z7n'
+SECRET_KEY = config('django_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 CELERY_BROKER_URL = 'amqp://localhost'
 
 APPEND_SLASH = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_COOKIE_SAMESITE = None
@@ -50,8 +53,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # Application definition
 
@@ -62,6 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'products',
     'tags',
     'shopping_cart',
@@ -76,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -86,6 +91,8 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200',
+    'http://thingifts.com',
+    'http://www.thingifts.com'
 )
 
 
@@ -100,7 +107,7 @@ ROOT_URLCONF = 'thin_gifts_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,8 +128,13 @@ WSGI_APPLICATION = 'thin_gifts_api.wsgi.application'
 
 DATABASES = {
     'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'NAME': 'thingifts_db',
+        # 'USER': 'postgres',
+        # 'HOST': config('RDS_host'),
+        # 'PASSWORD': config('DB_password')
     }
 }
 
@@ -159,8 +171,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
 STATIC_URL = '/static/'
+
+# for prod
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )

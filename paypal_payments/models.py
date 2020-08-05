@@ -1,14 +1,14 @@
 from paypalcheckoutsdk.orders import OrdersCaptureRequest
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
 
-from thin_gifts_api.settings import get_env_variable
+from decouple import config
 
 import sys
 
 class PayPalClient:
     def __init__(self):
-        self.client_id = get_env_variable("PAYPAL_CLIENT_ID_DEV")
-        self.client_secret = get_env_variable("PAYPAL_SECRET_DEV")
+        self.client_id = config('PAYPAL_CLIENT_ID')
+        self.client_secret = config('PAYPAL_SECRET')
 
         """Set up and return PayPal Python SDK environment with PayPal access credentials.
            This sample uses SandboxEnvironment. In production, use LiveEnvironment."""

@@ -3,11 +3,11 @@
         "model": "products.product",
         "pk": 1,
         "fields": {
-            "name": "Happy Birthday!",
-            "description": "A birthday card for a child ages 8-12.",
-            "price": 4.99,
+            "name": "Happy Birthday",
+            "description": "A birthday card for children and adults of all ages.",
+            "price": 3.99,
             "p_type": "CA",
-            "creator_name": "Matt Harris",
+            "creator_name": "Thin Gifts",
             "tags": [1],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
@@ -18,60 +18,75 @@
         "model": "products.product",
         "pk": 2,
         "fields": {
-            "name": "Happy Easter",
-            "description": "A colorful Easter card with eggs.",
-            "price": 6.99,
+            "name": "Valentine's Day",
+            "description": "A Valentine's day card for that special vegetable lover.",
+            "price": 3.99,
             "p_type": "CA",
-            "creator_name": "Jen Fang",
+            "creator_name": "Thin Gifts",
             "tags": [2],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
-            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Happy+Birthday+Card+Pic.jpg"
+            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/My+heart+beats+for+you+Card.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 3,
         "fields": {
-            "name": "Merry Christmas",
-            "description": "A christmas holiday card with Santa Claus.",
-            "price": 2.99,
+            "name": "Mother's Day",
+            "description": "A heartwarming Mother's Day card.",
+            "price": 3.99,
             "p_type": "CA",
-            "creator_name": "Matt Harris",
-            "tags": [3],
+            "creator_name": "Thin Gifts",
+            "tags": [4],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
-            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Happy+1+month+in+quarantine+cake+Card+Pic.jpg"
+            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Best+Mom+Ever+Card_Purple.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 4,
         "fields": {
-            "name": "Amazon Gift Card",
-            "description": "A gift card for Amazon for $25",
-            "price": 25.00,
-            "p_type": "GI",
-            "creator_name": "Amazon",
-            "tags": [5, 4],
+            "name": "Thank You",
+            "description": "Show your appreciation with this simple and genuine Thank You card.",
+            "price": 3.99,
+            "p_type": "CA",
+            "creator_name": "Thin Gifts",
+            "tags": [5],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
-            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Happy+1+month+in+quarantine+cake+Card+Pic.jpg"
+            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Thank+You+Card.png"
         }
     },
     {
         "model": "products.product",
         "pk": 5,
         "fields": {
-            "name": "Happy Father's Day!",
+            "name": "Father's Day",
             "description": "A Father's day card for that special Dad.",
-            "price": 4.99,
+            "price": 3.99,
             "p_type": "CA",
-            "creator_name": "Matt Harris",
-            "tags": [7],
+            "creator_name": "Thin Gifts",
+            "tags": [3],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
-            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Happy+Birthday+Card+Pic.jpg"
+            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Thanks+for+Having+My+Back+Dad+Card_1+Layer.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 6,
+        "fields": {
+            "name": "Get Well Soon",
+            "description": "Cheer up a friend with this deliciously positive card.",
+            "price": 3.99,
+            "p_type": "CA",
+            "creator_name": "Thin Gifts",
+            "tags": [6],
+            "created_at": "2020-04-12 18:55:40.899321",
+            "updated_at": "2020-04-12 18:55:40.899321",
+            "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Tough+Cookie+Card_test.jpg"
         }
     }
 ]
