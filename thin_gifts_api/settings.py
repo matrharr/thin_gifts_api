@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-from django.core.exceptions import ImproperlyConfigured
 import os
+import django_heroku
+from django.core.exceptions import ImproperlyConfigured
 from decouple import config
-
 
 def get_env_variable(name):
     """Gets the environment variable or throws ImproperlyConfigured
@@ -180,3 +180,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
 # )
+
+django_heroku.settings(locals())
