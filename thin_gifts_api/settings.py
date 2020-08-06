@@ -44,8 +44,8 @@ APPEND_SLASH = False
 
 ALLOWED_HOSTS = [
     'https://thingifts.herokuapp.com/',
-    'http://thingifts.com',
-    'https://thingifts.com',
+    'http://www.thingifts.com',
+    'https://www.thingifts.com',
     'localhost'
 ]
 
