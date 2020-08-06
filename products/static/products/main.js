@@ -1554,7 +1554,7 @@ var ApiService = /** @class */ (function () {
     function ApiService(http) {
         this.http = http;
         this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-            'Accept': 'application/json'
+            'Accept': 'application/json',
         });
         this.baseURL = '/api';
         this.requestOptions = {
