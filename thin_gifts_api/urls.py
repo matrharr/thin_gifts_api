@@ -43,7 +43,7 @@ router.register(r'order_products', order_views.OrderProductViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'execute_payment/', execute_payment),
-    url(r'subscribe_email/', subscribe_email),
+    url(r'api/execute_payment/', execute_payment),
+    url(r'api/subscribe_email/', subscribe_email),
     url(r'', product_views.HomePageView.as_view()),
 ]
