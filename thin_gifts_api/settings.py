@@ -45,7 +45,8 @@ APPEND_SLASH = False
 ALLOWED_HOSTS = [
     'https://thingifts.herokuapp.com/',
     'http://thingifts.com',
-    'https://thingifts.com'
+    'https://thingifts.com',
+    'localhost'
 ]
 
 SESSION_SAVE_EVERY_REQUEST = True
@@ -181,4 +182,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #     os.path.join(BASE_DIR, 'static'),
 # )
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
