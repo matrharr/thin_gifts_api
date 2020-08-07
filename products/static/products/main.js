@@ -1523,7 +1523,7 @@ var ApiInterceptor = /** @class */ (function () {
     };
     ApiInterceptor.prototype.update_nonce = function () {
         var scriptTag = document.getElementById('payment');
-        scriptTag['data-csp-nonce'] = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        scriptTag.setAttribute('data-csp-nonce', Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
     };
     ApiInterceptor.ctorParameters = function () { return [
         { type: _spinner_spinner_service__WEBPACK_IMPORTED_MODULE_3__["SpinnerService"] }
