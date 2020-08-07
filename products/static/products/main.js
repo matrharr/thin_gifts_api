@@ -1522,7 +1522,7 @@ var ApiInterceptor = /** @class */ (function () {
         }));
     };
     ApiInterceptor.prototype.update_nonce = function () {
-        var scriptTag = document.getElementById('paypal');
+        var scriptTag = document.getElementById('payment');
         scriptTag['data-csp-nonce'] = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     };
     ApiInterceptor.ctorParameters = function () { return [
