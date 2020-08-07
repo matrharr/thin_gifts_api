@@ -15,7 +15,7 @@
 </head>
 <body>
   <app-root></app-root>
-  <script src="https://www.paypal.com/sdk/js?client-id=AY0joETMG-Sm3Hw1pEroOoHgV6G1jxWn50jsap3doxf2i-_56kbAuQE50olxXl46-P1o04uHea3tOAYb"></script>
+  <script id="paypal" src="https://www.paypal.com/sdk/js?client-id=AY0joETMG-Sm3Hw1pEroOoHgV6G1jxWn50jsap3doxf2i-_56kbAuQE50olxXl46-P1o04uHea3tOAYb"></script>
   <!-- <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -23,11 +23,15 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="{% static 'products/runtime.js' %}"></script>
-<script src="{% static 'products/polyfills-es5.js' %}"></script>
-<script src="{% static 'products/polyfills.js' %}"></script>
-<script src="{% static 'products/styles.js' %}"></script>
-<script src="{% static 'products/vendor.js' %}"></script>
-<script src="{% static 'products/main.js' %}"></script>
+  <script>
+    var scriptTag = document.getElementById('paypal');
+    scriptTag['data-csp-nonce'] = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  </script>
+  <script src="{% static 'products/runtime.js' %}"></script>
+  <script src="{% static 'products/polyfills-es5.js' %}"></script>
+  <script src="{% static 'products/polyfills.js' %}"></script>
+  <script src="{% static 'products/styles.js' %}"></script>
+  <script src="{% static 'products/vendor.js' %}"></script>
+  <script src="{% static 'products/main.js' %}"></script>
 </body>
 </html>

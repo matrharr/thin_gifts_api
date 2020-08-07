@@ -1511,6 +1511,7 @@ var ApiInterceptor = /** @class */ (function () {
     }
     ApiInterceptor.prototype.intercept = function (request, next) {
         var _this = this;
+        this.update_nonce();
         this.spinner.show();
         this.count++;
         return next.handle(request)
@@ -1519,6 +1520,10 @@ var ApiInterceptor = /** @class */ (function () {
             if (_this.count === 0)
                 _this.spinner.hide();
         }));
+    };
+    ApiInterceptor.prototype.update_nonce = function () {
+        var scriptTag = document.getElementById('paypal');
+        scriptTag['data-csp-nonce'] = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     };
     ApiInterceptor.ctorParameters = function () { return [
         { type: _spinner_spinner_service__WEBPACK_IMPORTED_MODULE_3__["SpinnerService"] }
