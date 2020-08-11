@@ -1,3 +1,4 @@
+import uuid
 from django.db.models import Sum
 
 from rest_framework import viewsets, status
@@ -15,6 +16,13 @@ from shopping_cart.cart_product_serializer import ShoppingCartProductSerializer
 class ShoppingCartProductViewSet(viewsets.ModelViewSet):
     queryset = ShoppingCartProduct.objects.all()
     serializer_class = ShoppingCartProductSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        if str(serializer.data['shopping_cart']) == request.session['cart_id']:
+            return Response(serializer.data)
+        return Response(data='Unauthorized data requested.', status=status.HTTP_401_UNAUTHORIZED)
 
     @action(detail=False, methods=['post'])
     def create_or_update_cart(self, request, *args, **kwargs):
@@ -42,7 +50,7 @@ class ShoppingCartProductViewSet(viewsets.ModelViewSet):
             cart_product_serializer = ShoppingCartProductSerializer(data=cp_data)
             cart_product_serializer.is_valid(raise_exception=True)
             self.perform_create(cart_product_serializer)
-            request.session['cart_id'] = str(cart_serializer.data['id'])
+            request.session['cart_id'] = cart_serializer.data['id']
         
         return Response(cart_product_serializer.data)
         
@@ -55,6 +63,13 @@ class ShoppingCartViewSet(viewsets.ModelViewSet):
         return ShoppingCart.objects.annotate(
                 total_price=Sum('cart_products__price')
                )
+    
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        if str(serializer.data['id']) == request.session['cart_id']:
+            return Response(serializer.data)
+        return Response(data='Unauthorized data requested.', status=status.HTTP_401_UNAUTHORIZED)
 
     @action(detail=False, methods=['get'])
     def get_cart_quantity(self, request):

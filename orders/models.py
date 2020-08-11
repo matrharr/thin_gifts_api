@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
@@ -13,12 +14,13 @@ class Order(models.Model):
         PAID        = 'PAID', _('PAID')
         FULFILLED   = 'FULFILLED', _('FULFILLED')
         CANCELED    = 'CANCELED', _('CANCELED')
-
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at      = models.DateTimeField(auto_now_add=True)
     updated_at      = models.DateTimeField(auto_now=True)
     user            = models.ForeignKey(
                         User,
-                        on_delete=models.SET_NULL, 
+                        on_delete=models.SET_NULL,
                         null=True
                     )
     email           = models.CharField(max_length=100)
@@ -53,6 +55,7 @@ class OrderProduct(models.Model):
         REGULAR = 'REGULAR', _('Regular')
         CURSIVE = 'CURSIVE', _('Cursive')
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at        = models.DateTimeField(auto_now_add=True)
     updated_at        = models.DateTimeField(auto_now=True)
     product           = models.ForeignKey(

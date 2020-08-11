@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
@@ -5,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from products.models import Product
 
 class ShoppingCart(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     objects         = models.Manager()
     
     created_at      = models.DateTimeField(auto_now_add=True)
@@ -46,6 +48,7 @@ class ShoppingCartProduct(models.Model):
         REGULAR = 'REGULAR', _('Regular')
         CURSIVE = 'CURSIVE', _('Cursive')
     
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at        = models.DateTimeField(auto_now_add=True)
     updated_at        = models.DateTimeField(auto_now=True)
     product           = models.ForeignKey(Product, on_delete=models.CASCADE)

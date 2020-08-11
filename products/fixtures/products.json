@@ -1,14 +1,14 @@
 [
     {
         "model": "products.product",
-        "pk": 1,
+        "pk": "403b5476-081e-4b79-8c99-069a90811cee",
         "fields": {
             "name": "Happy Birthday",
             "description": "A birthday card for children and adults of all ages.",
             "price": 3.99,
             "p_type": "CA",
             "creator_name": "Thin Gifts",
-            "tags": [1],
+            "tags": ["88769441-7332-4df5-badb-7fea56a61ffb"],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
             "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Happy+Birthday+Card+Pic.jpg"
@@ -16,14 +16,14 @@
     },
     {
         "model": "products.product",
-        "pk": 2,
+        "pk": "915b215d-d3ae-4d35-9e91-667eeede7111",
         "fields": {
             "name": "Valentine's Day",
             "description": "A Valentine's day card for that special vegetable lover.",
             "price": 3.99,
             "p_type": "CA",
             "creator_name": "Thin Gifts",
-            "tags": [2],
+            "tags": ["6099f571-87a5-4f6e-868b-aab0e54da789"],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
             "image_url": "https://thin-gifts-cards.s3.amazonaws.com/My+heart+beats+for+you+Card.jpg"
@@ -31,14 +31,14 @@
     },
     {
         "model": "products.product",
-        "pk": 3,
+        "pk": "167e8840-4989-46d3-85e6-434fea26a432",
         "fields": {
             "name": "Mother's Day",
             "description": "A heartwarming Mother's Day card.",
             "price": 3.99,
             "p_type": "CA",
             "creator_name": "Thin Gifts",
-            "tags": [4],
+            "tags": ["202b82c1-6beb-49f4-8e7e-20f9966f0d42"],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
             "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Best+Mom+Ever+Card_Purple.jpg"
@@ -46,14 +46,14 @@
     },
     {
         "model": "products.product",
-        "pk": 4,
+        "pk": "415f12b9-9bde-4c2d-81c1-f33e34930216",
         "fields": {
             "name": "Thank You",
             "description": "Show your appreciation with this simple and genuine Thank You card.",
             "price": 3.99,
             "p_type": "CA",
             "creator_name": "Thin Gifts",
-            "tags": [5],
+            "tags": ["9ff63b25-4eb4-4f33-8ec2-cd6e035ae137"],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
             "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Thank+You+Card.png"
@@ -61,14 +61,14 @@
     },
     {
         "model": "products.product",
-        "pk": 5,
+        "pk": "c9733fce-16ce-4a48-861d-7318b3488e41",
         "fields": {
             "name": "Father's Day",
             "description": "A Father's day card for that special Dad.",
             "price": 3.99,
             "p_type": "CA",
             "creator_name": "Thin Gifts",
-            "tags": [3],
+            "tags": ["5e75dd9d-9ad8-4578-a938-9ae112213245"],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
             "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Thanks+for+Having+My+Back+Dad+Card_1+Layer.jpg"
@@ -76,14 +76,14 @@
     },
     {
         "model": "products.product",
-        "pk": 6,
+        "pk": "ec6201e6-13d5-4e7f-b835-13f5a15adc6e",
         "fields": {
             "name": "Get Well Soon",
             "description": "Cheer up a friend with this deliciously positive card.",
             "price": 3.99,
             "p_type": "CA",
             "creator_name": "Thin Gifts",
-            "tags": [6],
+            "tags": ["2cedd89d-84be-4118-afe2-baf21d824bd5"],
             "created_at": "2020-04-12 18:55:40.899321",
             "updated_at": "2020-04-12 18:55:40.899321",
             "image_url": "https://thin-gifts-cards.s3.amazonaws.com/Tough+Cookie+Card_test.jpg"

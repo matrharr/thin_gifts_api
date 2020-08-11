@@ -1,3 +1,4 @@
+import uuid
 from django.core.mail import send_mail
 from django.template import loader
 
@@ -15,7 +16,8 @@ from orders.serializers import OrderProductSerializer, OrderSerializer
 def execute_payment(request):
     result = CaptureOrder().capture_order(request.data['order_id'])
     # get shopping cart & scp
-    shopping_cart = ShoppingCart.objects.get(pk=request.data['shopping_cart_id'])
+    import ipdb; ipdb.set_trace()
+    shopping_cart = ShoppingCart.objects.get(pk=uuid.UUID(request.data['shopping_cart_id']))
     shopping_cart_products = shopping_cart.shopping_cart_products.all().values('product', 'message', 'return_address', 'recipient_address', 'color', 'font')
     scp = list(shopping_cart_products)
     email = request.data['email']
@@ -31,6 +33,7 @@ def execute_payment(request):
     
     shopping_cart.delete()
     del request.session['cart_id']
+    request.session['order_id'] = order.data['id']
     
     receipt_message = loader.render_to_string(
         'orders/order.html',

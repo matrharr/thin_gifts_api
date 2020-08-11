@@ -1,7 +1,7 @@
 [
     {
         "model": "tags.tag",
-        "pk": 1,
+        "pk": "88769441-7332-4df5-badb-7fea56a61ffb",
         "fields": {
             "name": "Birthday",
             "created_at": "2020-04-12 18:55:40.899321"
@@ -9,7 +9,7 @@
     },
     {
         "model": "tags.tag",
-        "pk": 2,
+        "pk": "6099f571-87a5-4f6e-868b-aab0e54da789",
         "fields": {
             "name": "Valentines",
             "created_at": "2020-04-12 18:55:40.899321"
@@ -17,7 +17,7 @@
     },
     {
         "model": "tags.tag",
-        "pk": 3,
+        "pk": "5e75dd9d-9ad8-4578-a938-9ae112213245",
         "fields": {
             "name": "Father's Day",
             "created_at": "2020-04-12 18:55:40.899321"
@@ -25,7 +25,7 @@
     },
     {
         "model": "tags.tag",
-        "pk": 4,
+        "pk": "202b82c1-6beb-49f4-8e7e-20f9966f0d42",
         "fields": {
             "name": "Mother's Day",
             "created_at": "2020-04-12 18:55:40.899321"
@@ -33,7 +33,7 @@
     },
     {
         "model": "tags.tag",
-        "pk": 5,
+        "pk": "9ff63b25-4eb4-4f33-8ec2-cd6e035ae137",
         "fields": {
             "name": "Thank You",
             "created_at": "2020-04-12 18:55:40.899321"
@@ -41,7 +41,7 @@
     },
     {
         "model": "tags.tag",
-        "pk": 6,
+        "pk": "2cedd89d-84be-4118-afe2-baf21d824bd5",
         "fields": {
             "name": "Get Well Soon",
             "created_at": "2020-04-12 18:55:40.899321"
