@@ -12,9 +12,9 @@
             <div class="payment" style="padding: 10px;margin: 10px;background-color: rgb(220, 224, 224);">
                 <h1>Order summary</h1>
                 <p>Subtotal ${{order.total_price.price__sum|floatformat:2}}</p>
-                <!-- <p>Shipping $X</p> -->
+                <p>Shipping ${{order.stamp_cost|floatformat:2}}</p>
                 <hr>
-                <h3>Order Total ${{order.total_price.price__sum|floatformat:2}}</h3>
+                <h3>Order Total ${{total|floatformat:2}}</h3>
                 <p>To modify or edit your order, email us at thingiftorder@gmail.com</p>
             </div>
         </div>

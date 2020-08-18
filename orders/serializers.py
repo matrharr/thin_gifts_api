@@ -41,6 +41,7 @@ class OrderProductSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     order_products = ProductSerializer(source='get_order_products', many=True, required=False, read_only=True)
     total_price = serializers.SerializerMethodField('get_total_price')
+    stamp_cost = serializers.SerializerMethodField('get_stamp_cost')
     order_products_set = OrderProductSerializer(many=True, required=False)
 
     def create(self, validated_data):
@@ -70,8 +71,12 @@ class OrderSerializer(serializers.ModelSerializer):
             'updated_at',
             'created_at',
             'total_price',
-            'status'
+            'status',
+            'stamp_cost'
         ]
+
+    def get_stamp_cost(self, instance):
+        return instance.order_products.count() * 0.55
 
     def get_total_price(self, instance):
         return instance.order_products.aggregate(Sum('price'))

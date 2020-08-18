@@ -27,8 +27,8 @@ class ShoppingCartProductViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def create_or_update_cart(self, request, *args, **kwargs):
         # update
-        if request.session.get('cart_id') is not None:
 
+        if request.session.get('cart_id') is not None:
             cp_data = {
                 **request.data,
                 'shopping_cart': request.session['cart_id']

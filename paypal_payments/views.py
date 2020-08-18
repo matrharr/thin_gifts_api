@@ -1,4 +1,5 @@
 import uuid
+import decimal
 from django.core.mail import send_mail
 from django.template import loader
 
@@ -16,7 +17,6 @@ from orders.serializers import OrderProductSerializer, OrderSerializer
 def execute_payment(request):
     result = CaptureOrder().capture_order(request.data['order_id'])
     # get shopping cart & scp
-    import ipdb; ipdb.set_trace()
     shopping_cart = ShoppingCart.objects.get(pk=uuid.UUID(request.data['shopping_cart_id']))
     shopping_cart_products = shopping_cart.shopping_cart_products.all().values('product', 'message', 'return_address', 'recipient_address', 'color', 'font')
     scp = list(shopping_cart_products)
@@ -33,18 +33,21 @@ def execute_payment(request):
     
     shopping_cart.delete()
     del request.session['cart_id']
+    
     request.session['order_id'] = order.data['id']
     
+    total = decimal.Decimal(order.data['stamp_cost']) +order.data['total_price']['price__sum']
     receipt_message = loader.render_to_string(
         'orders/order.html',
         {
-            "order": order.data
+            "order": order.data,
+            "total": total
         }
     )
     send_mail(
         'Your Thin Gifts Order',
         'Thank you for your recent order.',
-        'thingiftorders@gmail.com',
+        'thingiftsorders@gmail.com',
         [email, 'matrharr@gmail.com'],
         html_message=receipt_message,
         fail_silently=False
@@ -53,19 +56,19 @@ def execute_payment(request):
     print_message = loader.render_to_string(
         'orders/print-info.html',
         {
-            "order": order.data
+            "order": order.data,
+            "total": total
         }
     )
     
     send_mail(
         'Print Details for Order',
         'Print Details for Order',
-        'thingiftorders@gmail.com',
+        'thingiftsorders@gmail.com',
         ['matrharr@gmail.com', 'jenniferfang12@gmail.com'],
         html_message=print_message,
         fail_silently=False
     )
-
     
     return Response(order.data)
 
@@ -76,7 +79,7 @@ def subscribe_email(request):
     send_mail(
         'New Thin Gifts Newsletter subscriber!',
         message,
-        'thingiftorders@gmail.com',
+        'thingiftsorders@gmail.com',
         ['matrharr@gmail.com', 'jenniferfang12@gmail.com'],
         fail_silently=False
     )
