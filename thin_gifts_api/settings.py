@@ -135,9 +135,12 @@ WSGI_APPLICATION = 'thin_gifts_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'thingifts',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('DB_PW'),
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
